@@ -7,11 +7,11 @@ import '../utils/logger.dart';
 
 
 
-abstract class BaseScreen{
+abstract class BaseScreenTest{
 
   late WidgetTester tester;
 
-  BaseScreen({required this.tester});
+  BaseScreenTest({required this.tester});
 
   Logger _logger = Logger();
 
@@ -20,7 +20,6 @@ abstract class BaseScreen{
     await _logger.logInfo('Запуск приложения');
     runApp(const app.MyApp());
     await tester.pumpAndSettle();
-    await tester.ensureVisible(findByType(ElevatedButton));
   }
 
 
@@ -30,8 +29,8 @@ abstract class BaseScreen{
     return find.byKey(ValueKey(keyValue));
   }
 
-  Finder findByPredicate() {
-    return find.byWidgetPredicate((widget) => false);
+  Finder findByPredicate(WidgetPredicate requiredWidget) {
+    return find.byWidgetPredicate(requiredWidget);
   }
 
   Finder findByType(Type elementType){
@@ -42,17 +41,22 @@ abstract class BaseScreen{
     await tester.pumpAndSettle();
   }
 
-  Future<void> clickToElement(String keyString) async{
+  Future<void> clickToElementByKeyString(String keyString) async{
     await tester.tap(findByKey(keyString));
     await wait();
   }
 
+  Future<void> clickToElementByFinder(Finder finder) async{
+    await tester.tap(finder);
+    await wait();
+  }
 
+  Future<Finder> findElementContainsText(String text) async {
+    return await find.text(text);
+  }
 
-  
-  // Color getAppbarColor(){
-  //
-  // }
+  Future<void> goBack() async {
 
+  }
 
 }

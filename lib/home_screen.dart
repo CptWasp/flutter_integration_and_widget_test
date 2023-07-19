@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
+              key: const ValueKey('ButtonGreen'),
               style: ElevatedButton.styleFrom(backgroundColor: greenColor),
               onPressed: () {
                 Navigator.push(
@@ -29,6 +30,7 @@ class HomeScreen extends StatelessWidget {
               child: const Text('зеленый'),
             ),
             ElevatedButton(
+              key: const ValueKey('ButtonYellow'),
               style: ElevatedButton.styleFrom(backgroundColor: yellowColor),
               onPressed: () {
                 Navigator.push(

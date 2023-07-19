@@ -1,10 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:test_task_flutter/green_screen.dart';
 
+import 'pages/components/navigation_component_test.dart';
 import 'pages/home_screen_test.dart';
 import 'pages/green_screen_test.dart';
 import 'pages/yellow_screen_test.dart';
 import 'utils/logger.dart';
+import 'package:test_task_flutter/colors.dart' as colors;
+
 
 void main() {
 
@@ -15,10 +19,27 @@ void main() {
     HomeScreeenTest homeScreeenTest = HomeScreeenTest(tester: tester);
     GreenScreenTest greenScreenTest = GreenScreenTest(tester: tester);
     YellowScreenTest yellowScreenTest = YellowScreenTest(tester: tester);
+    NavigationComponentTest navigationComponentTest = NavigationComponentTest(tester: tester);
 
     await homeScreeenTest.initApp();
 
     await _logger.logInfo('1. тапнуть на “зеленый” - должен открыться экран с белой надписью “зеленый экран” и зеленым фоном');
+    await homeScreeenTest.clickToGreen();
+    await greenScreenTest.checkBgColor(colors.greenColor);
+    await greenScreenTest.checkElementsExists(Colors.white, 'Зеленый экран');
+
+
+    await _logger.logInfo('2. тапнуть кнопку назад - должны попасть на стартовый экран');
+    await navigationComponentTest.clickToBackIconInNavigation();
+    await homeScreeenTest.findElementContainsText('Стартовый экран');
+
+    await _logger.logInfo('3. тапнуть на “желтый” - должен открыться экран с кнопкой “случайное число”, текст в центре экрана не отображается');
+    await homeScreeenTest.clickToYellow();
+
+
+
+
+
 
 
 
