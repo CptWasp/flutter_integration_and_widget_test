@@ -35,14 +35,19 @@ void main() {
 
     await _logger.logInfo('3. тапнуть на “желтый” - должен открыться экран с кнопкой “случайное число”, текст в центре экрана не отображается');
     await homeScreeenTest.clickToYellow();
+    await yellowScreenTest.isButtonExists('Случайное число');
+    await yellowScreenTest.textInCenterIsNoExists();
 
 
+    await _logger.logInfo("4. тапнуть кнопку “случайное число” - отображается надпись с числом от 0 до 99 в центре экрана");
+    await yellowScreenTest.clickToButtonRandomNumber();
+    await yellowScreenTest.checkNumberInCenter();
 
 
-
-
-
-
+    await _logger.logInfo("5. тапнуть кнопку назад - должны попасть на стартовый экран");
+    await navigationComponentTest.clickToBackIconInNavigation();
+    await homeScreeenTest.wait();
+    await homeScreeenTest.isHomePage('Стартовый экран');
     },
   );
 }
