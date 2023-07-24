@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:test_task_flutter/green_screen.dart';
 
 import 'pages/components/navigation_component_test.dart';
 import 'pages/home_screen_test.dart';
