@@ -1,14 +1,8 @@
-import 'dart:math';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:test_task_flutter/keys.dart';
 import 'package:test_task_flutter/random_number_generator.dart';
-import 'package:test_task_flutter/yellow_screen.dart';
-import 'package:test_task_flutter/colors.dart' as colors;
 
-import '../integration_test/utils/logger.dart';
+
 import 'scenario/widget_test_scenario.dart';
 
 class RandomNumberMocks extends Mock implements RandomNumberGenerator{
