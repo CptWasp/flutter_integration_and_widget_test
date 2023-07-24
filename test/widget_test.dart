@@ -31,7 +31,7 @@ void main() {
                       int testData = 0;
                       WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
                       await testScenarios.successScenario(testData);
-                });
+        });
 
         testWidgets(
             'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - 1',
@@ -39,7 +39,7 @@ void main() {
               int testData = 1;
               WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
               await testScenarios.successScenario(testData);
-            });
+        });
 
         testWidgets(
             'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - 48',
@@ -47,7 +47,7 @@ void main() {
               int testData = 48;
               WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
               await testScenarios.successScenario(testData);
-            });
+        });
 
         testWidgets(
             'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - 49',
@@ -55,7 +55,7 @@ void main() {
               int testData = 48;
               WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
               await testScenarios.successScenario(testData);
-            });
+        });
 
         testWidgets(
             'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - -1',
@@ -63,7 +63,7 @@ void main() {
               int testData = -1;
               WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
               await testScenarios.unsuccessScenario(testData);
-            });
+        });
 
         testWidgets(
             'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - 50',
@@ -71,6 +71,16 @@ void main() {
               int testData = 50;
               WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
               await testScenarios.unsuccessScenario(testData);
-            });
+        });
+  });
+
+  group('Эквивалетные значения', () {
+    testWidgets(
+        'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - 24',
+            (WidgetTester tester) async {
+          int testData = 24;
+          WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
+          await testScenarios.successScenario(testData);
+        });
   });
 }
