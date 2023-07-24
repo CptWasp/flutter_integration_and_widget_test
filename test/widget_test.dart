@@ -64,6 +64,7 @@ void main() {
               WidgetTestScenarios testScenarios = WidgetTestScenarios(tester: tester);
               await testScenarios.unsuccessScenario(testData);
             });
+
         testWidgets(
             'Проверяем, что при тапе по кнопке число от 0 до 49 отображается синим цветом - 50',
                 (WidgetTester tester) async {
